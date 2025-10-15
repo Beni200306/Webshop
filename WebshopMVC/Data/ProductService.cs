@@ -15,7 +15,7 @@ namespace WebshopMVC.Data
         }
         public void Delete(int id)
         {
-            Product del = Read(id);
+            Product? del = Read(id);
             if (del is not null)
             {
                 ctx.Products.Remove(del);
@@ -32,7 +32,7 @@ namespace WebshopMVC.Data
         }
         public void Update(Product product)
         {
-            Product toUpdate = Read(product.Id);
+            Product? toUpdate = Read(product.Id);
             foreach (var prop in typeof(Product).GetProperties())
             {
                 var value = prop.GetValue(product);

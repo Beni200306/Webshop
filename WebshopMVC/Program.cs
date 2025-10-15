@@ -6,6 +6,7 @@ builder.Services.AddControllersWithViews();
 //var connString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<WebshopDbContext>();
 builder.Services.AddSingleton<ICartService, CartService>();
+builder.Services.AddTransient<ProductService>();
 
 var app = builder.Build();
 

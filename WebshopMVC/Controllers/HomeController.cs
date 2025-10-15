@@ -1,17 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebshopMVC.Data;
 
 namespace WebshopMVC.Controllers
 {
     public class HomeController:Controller
     {
-        public HomeController()
+        ProductService productService;
+        public HomeController(ProductService ps)
         {
-            
+            this.productService = ps;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(productService.Read());
         }
+
     }
 }
