@@ -7,6 +7,7 @@ namespace WebshopMVC.Data
     {
         public WebshopDbContext(DbContextOptions options) : base(options)
         {
+            Database.EnsureCreated();
         }
 
         public DbSet<Order> Orders { get; set; }
