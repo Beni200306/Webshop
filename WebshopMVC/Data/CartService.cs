@@ -16,15 +16,12 @@ namespace WebshopMVC.Data
         }
         public void Delete(int id)
         {
-            CartItem? delete = Cart.FirstOrDefault(x => x.Id == id);
-            if (delete is not null)
-            {
-                Cart.Remove(delete);
-            }
+            //todo:fix
         }
         public void Add(CartItem cartItem)
         {
             Cart.Add(cartItem);
+            
         }
     }
 }

@@ -7,7 +7,27 @@ namespace WebshopMVC.Data
     {
         public WebshopDbContext(DbContextOptions options) : base(options)
         {
+            Database.EnsureDeleted();
             Database.EnsureCreated();
+
+            Products?.Add(new Product() {Name="Alma",
+                    Description="Finom, nagyon finom piros",
+                    Price=1200,
+            ImageURL="asd"});
+            Products?.Add(new Product() {Name="Banán",
+                    Description="Finom, nagyon finom sárga",
+                    Price=1000,
+                ImageURL = "asd"
+            });
+            Products?.Add(new Product()
+            {
+                Name = "Meggy",
+                Description = "Finom, nagyon finom vörös",
+                Price = 2200,
+                ImageURL = "asd"
+            });
+
+            this.SaveChanges();
         }
 
         public DbSet<Order> Orders { get; set; }
