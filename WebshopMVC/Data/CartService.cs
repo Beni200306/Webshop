@@ -2,7 +2,7 @@
 
 namespace WebshopMVC.Data
 {
-    public class CartService
+    public class CartService : ICartService
     {
         List<CartItem> Cart;
 
@@ -16,7 +16,7 @@ namespace WebshopMVC.Data
         }
         public void Delete(int id)
         {
-            CartItem? delete = Cart.FirstOrDefault(x=>x.Id==id);
+            CartItem? delete = Cart.FirstOrDefault(x => x.Id == id);
             if (delete is not null)
             {
                 Cart.Remove(delete);
