@@ -37,7 +37,7 @@ namespace WebshopMVC.Controllers
         public IActionResult Delete(int id)
         {
             cart.Delete(id);
-            return View(nameof(Index));
+            return RedirectToAction(nameof(Index));
         }
     }
 }
