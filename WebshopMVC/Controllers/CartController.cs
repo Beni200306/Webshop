@@ -6,24 +6,29 @@ namespace WebshopMVC.Controllers
 {
     public class CartController:Controller
     {
-        ICartService cartService;
+        ICartService cart;
+        ProductService productService;
 
-        public CartController(ICartService cartService)
+        public CartController(ICartService cartService, ProductService ps)
         {
-            this.cartService = cartService;
+            this.cart = cartService;
+            productService=ps;
         }
         public IActionResult Index()
         {
-            return View(cartService.Read());
+            return View(cart.Read());
         }
-        public IActionResult Add(CartItem item)
+        public IActionResult Add(int id, int q)
         {
-            cartService.Add(item);
-            return View(nameof(Index));
+            Product p = productService.Read(id);
+            CartItem item = new CartItem() {Product=p,Quantity=q, ProductId=p.Id };
+            cart.Add(item);
+            ;
+            return RedirectToAction("Index","Home");
         }
         public IActionResult Delete(int id)
         {
-            cartService.Delete(id);
+            cart.Delete(id);
             return View(nameof(Index));
         }
     }

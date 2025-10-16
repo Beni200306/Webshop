@@ -7,6 +7,7 @@
         <title>Webshop</title>
     </head>
     <body>
+        
         <table>
             <tr>
                 <th>Id</th>
@@ -20,7 +21,7 @@
                     <td>@item.Id</td>
                     <td>@item.Name</td>
                     <td>@item.Price</td>
-                    <td><a href="/home/addcart?id=@item.Id&q=2">+</a></td>
+                    <td><a href="/cart/add?id=@item.Id&q=2">+</a></td>
                 </tr>
             }       
     
