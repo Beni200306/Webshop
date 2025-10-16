@@ -1,0 +1,16 @@
+﻿@using WebshopMVC.Models;
+@model IEnumerable<CartItem>;
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Cart</title>
+    </head>
+    <body>
+        <div>
+            @foreach (CartItem item in Model)
+            {
+            <div>@item.Product.Name @item.Product.Price Ft @item.Quantity Darab</div>
+            }
+        </div>
+    </body>
+    </html>

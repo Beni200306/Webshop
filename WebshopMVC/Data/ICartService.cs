@@ -7,5 +7,6 @@ namespace WebshopMVC.Data
         void Add(CartItem cartItem);
         void Delete(int id);
         IEnumerable<CartItem> Read();
+        CartItem ReadById(int id);
     }
 }

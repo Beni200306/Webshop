@@ -14,6 +14,10 @@ namespace WebshopMVC.Data
         {
             return Cart;
         }
+        public CartItem? ReadById(int id)
+        {
+            return Cart.FirstOrDefault(x=>x.ProductId==id);
+        }
         public void Delete(int id)
         {
             CartItem? del = Cart.FirstOrDefault(x => x.ProductId == id);
@@ -25,7 +29,6 @@ namespace WebshopMVC.Data
         public void Add(CartItem cartItem)
         {
             Cart.Add(cartItem);
-            
         }
     }
 }

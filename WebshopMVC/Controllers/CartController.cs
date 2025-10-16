@@ -20,10 +20,18 @@ namespace WebshopMVC.Controllers
         }
         public IActionResult Add(int id, int q)
         {
-            Product p = productService.Read(id);
-            CartItem item = new CartItem() {Product=p,Quantity=q, ProductId=p.Id };
-            cart.Add(item);
-            ;
+
+            CartItem item = cart.ReadById(id);
+            if (item is null)
+            {
+                Product? p = productService.Read(id);
+                item = new CartItem() { Product = p, Quantity = q, ProductId = p.Id };
+                cart.Add(item);
+            }
+            else
+            {
+                item.Quantity += q;
+            }
             return RedirectToAction("Index","Home");
         }
         public IActionResult Delete(int id)
