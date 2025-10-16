@@ -16,7 +16,16 @@ namespace WebshopMVC.Controllers
         }
         public IActionResult Index()
         {
-            return View(cart.Read());
+            IEnumerable<CartItem> c= cart.Read();
+            if (c.Count()==0)
+            {
+                return RedirectToAction(nameof(Empty));
+            }
+            return View(c);
+        }
+        public IActionResult Empty()
+        {
+            return View();
         }
         public IActionResult Add(int id, int q)
         {
