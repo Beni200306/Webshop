@@ -7,6 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<WebshopDbContext>();
 builder.Services.AddSingleton<ICartService, CartService>();
 builder.Services.AddTransient<ProductService>();
+builder.Services.AddTransient<OrderService>();
 
 var app = builder.Build();
 
